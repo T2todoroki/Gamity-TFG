@@ -4,6 +4,7 @@ $db   = 'gamity_db';
 $user = 'root';
 $pass = 'root';
 
+//comentario de prueba
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
     echo "<h1>Funciona</h1>";
