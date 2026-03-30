@@ -1,43 +1,48 @@
 version: '3.8'
 
 services:
-  # Servidor Web Apache y PHP 8.2 con Driver MySQL
+  # Servidor Web Apache y PHP 8.2
   app:
     build: .
-    container_name: gamity_app
+    container_name: gamity_app_v2
     ports:
-      - "8080:80" # Acceso desde el navegador en localhost:8080
+      - "8082:80" #localhost:8082
     volumes:
       - ./public:/var/www/html
       - ./src:/var/www/src
     networks:
-      - gamity_network
+      - gamity_network_v2
     depends_on:
       - db
 
   # BASE DE DATOS: MySQL 8.0
   db:
     image: mysql:8.0
-    container_name: gamity_db
+    container_name: gamity_db_v2
     environment:
-      MYSQL_ROOT_PASSWORD: root # Contraseña del admin
-      MYSQL_DATABASE: gamity_db # Nombre de la base de datos de Gamity
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gamity_db
     ports:
-      - "3306:3306"
+      - "3307:3306" # Puerto interno 3306, pero externo 3307
+    volumes:
+      - db_data_v2:/var/lib/mysql
     networks:
-      - gamity_network
+      - gamity_network_v2
 
   # GESTOR VISUAL: phpMyAdmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: gamity_pma
+    container_name: gamity_pma_v2
     ports:
-      - "8081:80" # Acceso en localhost:8081
+      - "8083:80"  
     environment:
-      PMA_HOST: db # Indica que se conecte al servicio 'db'
+      PMA_HOST: db
     networks:
-      - gamity_network
+      - gamity_network_v2
 
 networks:
-  gamity_network:
+  gamity_network_v2:
     driver: bridge
+
+volumes:
+  db_data_v2:
