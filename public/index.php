@@ -5,6 +5,7 @@ $user = 'root';
 $pass = 'root';
 
 //comentario de prueba
+//comentario de prueba2
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
     echo "<h1>Funciona</h1>";
