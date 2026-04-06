@@ -31,7 +31,7 @@ class User{
 
         //confirmar la transacción 
 
-        //revertir en caso de que falla algo mientras se hace la transaccións
+        //revertir en caso de que falla algo mientras se hace la transacción
 
     }
 
