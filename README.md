@@ -20,3 +20,6 @@ Gamity es una plataforma web diseñada para conectar jugadores de cualquier tipo
 -- Estado del proyecto
 En fase de planificación (análisis y diseño de la base de datos).
 
+-- Guía de Inicio Rápido (Docker)
+Para ejecutar el proyecto, usa el siguiente comando en la terminal:
+docker-compose up -d
