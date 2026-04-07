@@ -26,6 +26,7 @@ services:
       - "3307:3306" # Puerto interno 3306, pero externo 3307
     volumes:
       - db_data_v2:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
       - gamity_network_v2
 
